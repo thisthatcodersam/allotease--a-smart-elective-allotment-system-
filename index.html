@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllotEase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="allotease.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container bar">
+            <a class="brand" href="./">
+                <div class="brand-mark">🎓</div>
+                <div class="brand-title">AllotEase</div>
+            </a>
+            <nav class="nav">
+                <a href="./" class="active">Home</a>
+                <a href="admin.html">Admin</a>
+            </nav>
+            <div class="cta">
+                <button id="openLogin" class="btn btn-outline">Login</button>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container wrap">
+                <div class="grid grid-cols-2">
+                    <div>
+                        <div class="badge" style="display:inline-flex;gap:8px;align-items:center">
+                            <span>✨</span> <span>Smart AI suggestions by CGPA</span>
+                        </div>
+                        <h1>AllotEase <span>Elective swapping made simple</span></h1>
+                        <p>Discover electives, swap fairly with peers, and let our AI nudge you towards the best fit
+                            based on your CGPA.</p>
+                        <div class="actions">
+                            <button id="swapBtnQuick" class="btn">⚡ Quick Swap</button>
+                            <a class="btn btn-outline" href="#ai-suggest">🧠 Get AI Suggestions</a>
+                        </div>
+                        <div class="badges" style="margin-top:16px">
+                            <span class="badge">Fast</span>
+                            <span class="badge">Fair</span>
+                            <span class="badge">Student-first</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div class="hd">
+                                <h3>Swap Explorer</h3>
+                                <p>Find peers looking for complementary swaps</p>
+                            </div>
+                            <div class="bd">
+                                <div class="grid" style="grid-template-columns:1fr 1fr">
+                                    <div>
+                                        <label>You have</label>
+                                        <select id="fromElective">
+                                            <option value="">Select your current elective</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label>You want</label>
+                                        <select id="toElective">
+                                            <option value="">Select desired elective</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="margin-top:12px">
+                                    <button id="swapBtn" class="btn full">Request Swap</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container" style="padding:56px 0" id="categories">
+            <h2 style="margin:0 0 8px">Elective categories</h2>
+            <p class="muted">PBL, theory-based, and smart AI picks</p>
+            <div class="tabs" style="margin-top:16px">
+                <button class="tab" data-tab="pbl" aria-selected="true">🧪 PBL</button>
+                <button class="tab" data-tab="theory">📖 Theory</button>
+                <button class="tab" data-tab="ai">🤖 AI Suggested</button>
+            </div>
+            <div class="tabpanel" data-panel="pbl">
+                <div class="cards-3" id="pblCards">
+                    <!-- filled via JS for simplicity? keep simple static cards -->
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Robotics</h3>
+                            <p>Project-based learning elective</p>
+                        </div>
+                        <div class="bd">
+                            <div class="badges"><span class="badge">teamwork</span><span class="badge">practical</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Society and Sustainabilty</h3>
+                            <p>Project-based learning elective</p>
+                        </div>
+                        <div class="bd">
+                            <div class="badges"><span class="badge">teamwork</span><span class="badge">practical</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabpanel" data-panel="theory" hidden>
+                <div class="cards-3">
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Literature</h3>
+                            <p>Theory-focused elective</p>
+                        </div>
+                        <div class="bd">
+                            <div class="badges"><span class="badge">concepts</span><span class="badge">rigor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Political Science</h3>
+                            <p>Theory-focused elective</p>
+                        </div>
+                        <div class="bd">
+                            <div class="badges"><span class="badge">concepts</span><span class="badge">rigor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Principles of Management</h3>
+                            <p>Theory-focused elective</p>
+                        </div>
+                        <div class="bd">
+                            <div class="badges"><span class="badge">concepts</span><span class="badge">rigor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabpanel" data-panel="ai" id="ai-suggest" hidden>
+                <div class="grid" style="grid-template-columns:1fr 2fr">
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Get suggestions</h3>
+                            <p>Enter your CGPA to see tailored picks</p>
+                        </div>
+                        <div class="bd">
+                            <label>CGPA</label>
+                            <input id="cgpa" type="number" min="0" max="10" step="0.01" placeholder="e.g. 8.6" />
+                            <div class="muted" style="font-size:12px;margin-top:6px">Higher CGPA leans to advanced
+                                theory; balanced picks for 8+; practical options otherwise.</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="hd">
+                            <h3>Recommended for you</h3>
+                            <p class="muted">Enter your CGPA to view recommendations</p>
+                        </div>
+                        <div class="bd">
+                            <ul id="suggestionsList" style="list-style:none;padding:0;margin:0;display:grid;gap:12px">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container cols">
+            <div>
+                <h4>AllotEase</h4>
+                <p>Elective swapping made simple. Smart suggestions, fair allocation, and a clean workflow for students
+                    and admins.</p>
+            </div>
+            <div>
+                <h4>Features</h4>
+                <ul>
+                    <li>Elective swapping</li>
+                    <li>PBL & Theory categorization</li>
+                    <li>AI suggestions by CGPA</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li>Contact admin</li>
+                    <li>Privacy & Terms</li>
+                </ul>
+            </div>
+        </div>
+        <div class="legal">
+            <div class="container bar"><span>©
+                    <script>document.write(new Date().getFullYear())</script> AllotEase
+                </span><span>Seamless elective allocation</span></div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+    <!-- Student Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Student Login</h3>
+            <label>Username</label>
+            <input id="loginUsername" type="text" placeholder="Enter username" />
+
+            <label>Password</label>
+            <input id="loginPassword" type="password" placeholder="Enter password" />
+
+            <button id="loginSubmit" class="btn full" style="margin-top:16px">Login</button>
+
+            <button id="closeLogin" class="btn btn-outline full" style="margin-top:8px">Cancel</button>
+        </div>
+    </div>
+
+    <script src="allotease.js"></script>
+</body>
+
+</html>

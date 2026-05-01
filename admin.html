@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllotEase Admin</title>
+    <link rel="stylesheet" href="allotease.css" />
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container bar">
+            <a class="brand" href="./">
+                <div class="brand-mark">🎓</div>
+                <div class="brand-title">Admin Panel</div>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a class="active" href="admin.html">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding:40px 0">
+
+        <h2>Admin Dashboard</h2>
+        <p class="muted">Manage electives and swap requests</p>
+
+        <!-- Add Elective -->
+        <div class="card" style="margin-top:20px">
+            <div class="hd">
+                <h3>Add New Elective</h3>
+            </div>
+            <div class="bd grid" style="grid-template-columns:1fr 1fr; gap:10px">
+                <input id="electiveName" placeholder="Elective Name" />
+                <input id="electiveType" placeholder="Type (PBL/Theory)" />
+                <button class="btn full" id="addElectiveBtn">Add Elective</button>
+            </div>
+        </div>
+
+        <!-- Electives List -->
+        <div class="card" style="margin-top:20px">
+            <div class="hd">
+                <h3>Electives</h3>
+            </div>
+            <ul id="electiveList" style="list-style:none;padding:0"></ul>
+        </div>
+
+        <!-- Swap Requests -->
+        <div class="card" style="margin-top:20px">
+            <div class="hd">
+                <h3>Swap Requests</h3>
+            </div>
+            <ul id="swapList" style="list-style:none;padding:0"></ul>
+        </div>
+
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
